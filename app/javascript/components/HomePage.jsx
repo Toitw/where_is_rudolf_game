@@ -1,15 +1,15 @@
 import React from 'react';
-import Ranking from './Ranking'; // Import Ranking component
-import Footer from './Footer'; // Import Footer component
+import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
     <div className="home-page">
       <h1>Welcome to Where's Waldo Game!</h1>
       {/* <img src="path_to_background_image.jpg" alt="Background" className="background-image" /> */}
-      <button>
-        Let's Play
-      </button>
+      <Link to="/gameboard" role="button">
+        Let's play!
+      </Link>
       <Footer />
     </div>
   );
