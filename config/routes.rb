@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   #post route for clicked_frame
   root "homepage#index"
   get "/gameboard", to: "gameboard#index"
+  get "/api/characters", to: "characters#index"
   post "/clicked_frame", to: "characters#clicked_frame"
   # Defines the root path route ("/")
   # root "articles#index"

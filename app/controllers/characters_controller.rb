@@ -11,4 +11,9 @@ class CharactersController < ApplicationController
           render json: { status: "not_found" }
         end
     end
+
+    def index
+        characters = Character.all
+        render json: characters
+    end
 end
