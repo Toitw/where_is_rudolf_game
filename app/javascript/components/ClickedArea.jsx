@@ -1,3 +1,5 @@
+import React from "react";
+
 const ClickedArea = ({ x, y }) => {
     const style = {
       left: `${x}px`,
@@ -5,7 +7,11 @@ const ClickedArea = ({ x, y }) => {
       // Additional styling
     };
   
-    return <div className="clicked-area" style={style} />;
+    return (
+        <div className="clicked-area" style={style}>;
+            <h2>Clicked Area</h2>
+        </div>
+    );
 };
 
 export default ClickedArea;

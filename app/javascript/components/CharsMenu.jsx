@@ -3,7 +3,7 @@ import React from 'react';
 const CharsMenu = () => {
   return (
     <div className="chars-menu">
-      {/* List of characters to select */}
+      <h2>Chars menus</h2>
     </div>
   );
 };
