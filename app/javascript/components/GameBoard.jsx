@@ -1,6 +1,7 @@
 import React from "react";
 import ImageBoard from "./ImageBoard";
 import Timer from "./Timer";
+import Chars from "./Chars";
 
 const GameBoard = () => {
     return (
@@ -8,6 +9,7 @@ const GameBoard = () => {
             <Timer  />
             <h1>To be build</h1>
             <ImageBoard />
+            <Chars />
         </div>
     );
 };
