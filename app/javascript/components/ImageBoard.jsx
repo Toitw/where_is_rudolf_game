@@ -3,7 +3,7 @@ import ClickedArea from './ClickedArea';
 import CharsMenu from './CharsMenu';
 
 
-const ImageBoard = () => {
+const ImageBoard = ({charsLeft}) => {
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0, clicked: false });
 
   const handleImageClick = (event) => {
@@ -19,7 +19,7 @@ const ImageBoard = () => {
       {clickPosition.clicked && (
         <>
           <ClickedArea x={clickPosition.x} y={clickPosition.y} />
-          <CharsMenu x={clickPosition.x} y={clickPosition.y} />
+          <CharsMenu charsLeft={charsLeft} x={clickPosition.x} y={clickPosition.y} />
         </>
       )}
     </div>

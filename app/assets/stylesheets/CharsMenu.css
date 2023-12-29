@@ -1,0 +1,7 @@
+.chars-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid black;
+    padding: 10px;
+    z-index: 1;
+}
