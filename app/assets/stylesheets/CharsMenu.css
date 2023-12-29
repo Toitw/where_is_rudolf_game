@@ -1,7 +1,16 @@
 .chars-menu {
     position: absolute;
+    width: 150px; 
+    height: 150px;
     background: white;
     border: 1px solid black;
     padding: 10px;
     z-index: 1;
+    border-radius: 10px; 
+    overflow: auto; 
+}
+
+.chars-menu ul {
+    list-style-type: none; 
+    padding: 0;
 }
