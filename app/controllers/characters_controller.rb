@@ -2,8 +2,8 @@ class CharactersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:clicked_frame]
 
     def clicked_frame
-        x_click = params[:x].to_i 
-        y_click = params[:y].to_i 
+        x_click = clicked_frame_params[:x].to_i 
+        y_click = clicked_frame_params[:y].to_i 
     
         character = Character.find_by_position(x_click, y_click)
     
