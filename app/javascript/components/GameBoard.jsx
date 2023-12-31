@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import ImageBoard from "./ImageBoard";
 import Timer from "./Timer";
 import Chars from "./Chars";
+import WinWindow from "./WinWindow";
 
 const GameBoard = () => {
     const [charsLeft, setCharsLeft] = useState([]);
+    const [time, setTime] = useState(0);
+    const [gameOver, setGameOver] = useState(false);
 
     useEffect(() => {
         fetch('/api/characters')
@@ -18,7 +21,9 @@ const GameBoard = () => {
             .catch(error => console.error('Error:', error));
     }, []);
 
-    console.log(charsLeft)
+    const handleGameOver = () => {
+        setGameOver(true); 
+    };
 
     return (
         <div className="game-board">
@@ -26,10 +31,10 @@ const GameBoard = () => {
             {charsLeft.map(char => (
                 <p key={char.id}>{char.name}</p>
             ))}
-            <Timer />
-            <h1>To be build</h1>
-            <ImageBoard charsLeft={charsLeft} setCharsLeft={setCharsLeft} />
+            <Timer time={time} setTime={setTime} gameOver={gameOver} />
+            <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} />
             <Chars charsLeft={charsLeft} setCharsLeft={setCharsLeft} />
+            {gameOver && <WinWindow time={time} />}
         </div>
     );
 };

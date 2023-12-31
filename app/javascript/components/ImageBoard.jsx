@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CharsMenu from './CharsMenu';
 
-const ImageBoard = ({charsLeft, setCharsLeft}) => {
+const ImageBoard = ({charsLeft, setCharsLeft, onGameOver}) => {
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0, clicked: false });
   const [showSelectionComponents, setShowSelectionComponents] = useState(true);
   const [showMessage, setShowMessage] = useState(false); // Lifted state
@@ -19,8 +19,8 @@ const ImageBoard = ({charsLeft, setCharsLeft}) => {
   };
 
   const handleCharacterSelection = () => {
-    setShowSelectionComponents(false); // Hide components on character selection
-    setShowMessage(true); // Show message on character selection
+    setShowSelectionComponents(false); 
+    setShowMessage(true); 
   };
 
   return (
@@ -33,8 +33,9 @@ const ImageBoard = ({charsLeft, setCharsLeft}) => {
           x={clickPosition.x} 
           y={clickPosition.y} 
           onCharacterSelect={handleCharacterSelection} 
-          showMessage={showMessage} // Pass down as prop
-          setShowMessage={setShowMessage} // Pass down as prop
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
+          onGameOver={onGameOver}
         />
       )}
     </div>

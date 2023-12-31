@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-const Timer = () => {
-    const [time, setTime] = useState(0);
+// ... existing imports ...
 
+const Timer = ({ time, setTime, gameOver }) => {
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTime((prevTime) => prevTime + 1);
-        }, 1000);
+        if (!gameOver) {
+            const interval = setInterval(() => {
+                setTime(prevTime => prevTime + 1);
+            }, 1000);
 
-        return () => {
-            clearInterval(interval);
-        };
-    }, []);
+            return () => clearInterval(interval);
+        }
+    }, [gameOver, setTime]);
 
     return <div>Timer: {time} seconds</div>;
 };
 
 export default Timer;
+

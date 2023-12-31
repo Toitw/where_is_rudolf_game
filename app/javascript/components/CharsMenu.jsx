@@ -3,7 +3,7 @@ import MatchMessage from './MatchMessage';
 import { useState } from 'react';
 
 
-const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage }) => {
+const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage, onGameOver }) => {
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -30,6 +30,10 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage 
         setCharsLeft(newCharsLeft);
         setMessage(`You found ${character.name}!`);
         setIsSuccess(true);
+
+        if (newCharsLeft.length === 0) {
+          onGameOver(); // Game is over when no characters are left
+        }
       } else {
         setMessage("Nope, keep looking!");
         setIsSuccess(false);
