@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   resources :characters
   post "/characters/clicked_frame", to: "characters#clicked_frame"
+
+  resources :users
+  post '/api/scores', to: 'scores#create'
 end

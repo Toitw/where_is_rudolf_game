@@ -1,0 +1,44 @@
+.win-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffcc00; /* Vibrant yellow background */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  width: 300px; /* Adjust width as needed */
+}
+
+.win-window h2 {
+  color: #3366ff; /* Bright blue color for the heading */
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Playful font */
+  margin-bottom: 15px;
+}
+
+.win-window p {
+  margin-bottom: 20px;
+}
+
+.win-window input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #3366ff; /* Blue underline */
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 80%;
+}
+
+.win-window button {
+  background-color: #33cc33; /* Green button */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.win-window button:hover {
+  background-color: #28a745; /* Darker green on hover */
+}

@@ -1,42 +1,48 @@
-import React from 'react';
-import './WinWindow.css'; 
+import React, { useState } from 'react';
 
 const WinWindow = ({ time }) => {
-  // Placeholder ranking data
-  const rankingData = [
-    { position: 1, time: '00:30', name: 'Player 1' },
-    { position: 2, time: '00:35', name: 'Player 2' },
-    // ... more data
-  ];
+    const [name, setName] = useState('');
+    const csrfToken = document.querySelector('[name="csrf-token"]').content;
 
-  return (
-    <div className="win-window">
-      <h1>Congratulations!</h1>
-      <p>Total Time: {totalTime}</p>
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-      <table>
-        <thead>
-          <tr>
-            <th>Position</th>
-            <th>Time</th>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rankingData.map((row) => (
-            <tr key={row.position}>
-              <td>{row.position}</td>
-              <td>{row.time}</td>
-              <td>{row.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        fetch('/api/scores', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfToken,
+            },
+            body: JSON.stringify({ score: { name, time } }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Score saved:', data);
+            // Handle successful score save, maybe redirect or show a message
+        })
+        .catch(error => {
+            console.error('Error saving score:', error);
+        });
+    };
 
-      <button onClick={() => { /* Play Again logic */ }}>Play Again</button>
-      <button onClick={() => { /* Highscore logic */ }}>Highscore</button>
-    </div>
-  );
+    return (
+        <div className="win-window">
+            <h2>Congratulations!</h2>
+            <p>Your time: {time} seconds</p>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Name:
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                </label>
+                <button type="submit">Submit Score</button>
+            </form>
+        </div>
+    );
 };
 
 export default WinWindow;

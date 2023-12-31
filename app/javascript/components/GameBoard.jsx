@@ -32,7 +32,7 @@ const GameBoard = () => {
                 <p key={char.id}>{char.name}</p>
             ))}
             <Timer time={time} setTime={setTime} gameOver={gameOver} />
-            <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} />
+            <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} setCharsLeft={setCharsLeft}/>
             <Chars charsLeft={charsLeft} setCharsLeft={setCharsLeft} />
             {gameOver && <WinWindow time={time} />}
         </div>
