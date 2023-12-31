@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CharsMenu from './CharsMenu';
 
-const ImageBoard = ({charsLeft}) => {
+const ImageBoard = ({charsLeft, setCharsLeft}) => {
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0, clicked: false });
   const [showSelectionComponents, setShowSelectionComponents] = useState(true);
   const [showMessage, setShowMessage] = useState(false); // Lifted state
@@ -29,6 +29,7 @@ const ImageBoard = ({charsLeft}) => {
       {clickPosition.clicked && showSelectionComponents && (
         <CharsMenu 
           charsLeft={charsLeft} 
+          setCharsLeft={setCharsLeft}
           x={clickPosition.x} 
           y={clickPosition.y} 
           onCharacterSelect={handleCharacterSelection} 

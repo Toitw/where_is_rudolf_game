@@ -3,7 +3,7 @@ import MatchMessage from './MatchMessage';
 import { useState } from 'react';
 
 
-const CharsMenu = ({ charsLeft, x, y, showMessage, setShowMessage }) => {
+const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage }) => {
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -26,6 +26,8 @@ const CharsMenu = ({ charsLeft, x, y, showMessage, setShowMessage }) => {
     })
     .then(data => {
       if (data.status === 'found' && data.name === character.name) {
+        const newCharsLeft = charsLeft.filter(char => char.name !== character.name);
+        setCharsLeft(newCharsLeft);
         setMessage(`You found ${character.name}!`);
         setIsSuccess(true);
       } else {
