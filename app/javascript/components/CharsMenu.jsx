@@ -1,7 +1,12 @@
 import React from 'react';
+import MatchMessage from './MatchMessage';
+import { useState } from 'react';
 
-const CharsMenu = ({ charsLeft, x, y }) => {
-  console.log(x, y)
+
+const CharsMenu = ({ charsLeft, x, y, showMessage, setShowMessage }) => {
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const handleCharacterClick = (event, character) => {
     event.stopPropagation();
 
@@ -21,12 +26,13 @@ const CharsMenu = ({ charsLeft, x, y }) => {
     })
     .then(data => {
       if (data.status === 'found' && data.name === character.name) {
-        console.log('Correct character selected!');
+        setMessage(`You found ${character.name}!`);
+        setIsSuccess(true);
       } else {
-        console.log(character.name)
-        console.log(data)
-        console.log('Incorrect character selected.');
+        setMessage("Nope, keep looking!");
+        setIsSuccess(false);
       }
+      setShowMessage(true);
     })
     .catch(error => {
       console.log('Fetch failed: ', error);
@@ -35,14 +41,23 @@ const CharsMenu = ({ charsLeft, x, y }) => {
   
 
   return (
-    <div className="chars-menu" style={{ top: y+280, left: x+70 }}>
-      <p>Who is it?</p>
-      <ul>
-        {charsLeft.map(character => (
-          <li key={character.id} onClick={(e) => handleCharacterClick(e, character)}>{character.name}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {!showMessage ? (
+       <>
+        <div className="clicked-area" style={{ top: y+280, left: x-50 }}></div>
+        <div className="chars-menu" style={{ top: y+280, left: x+70 }}>
+          <p>Who is it?</p>
+          <ul>
+            {charsLeft.map(character => (
+              <li key={character.id} onClick={(e) => handleCharacterClick(e, character)}>{character.name}</li>
+            ))}
+          </ul>
+        </div>
+       </>
+      ) : (
+        <MatchMessage message={message} isSuccess={isSuccess} onClose={() => setShowMessage(false)} x={x} y={y}/>
+      )}
+    </>
   );
 };
 
