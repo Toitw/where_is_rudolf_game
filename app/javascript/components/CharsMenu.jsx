@@ -1,6 +1,7 @@
 import React from 'react';
 import MatchMessage from './MatchMessage';
 import { useState } from 'react';
+import ClickedArea from './ClickedArea';
 
 
 const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage, onGameOver }) => {
@@ -50,8 +51,8 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage,
     <>
       {!showMessage ? (
        <>
-        <div className="clicked-area" style={{ top: y+280, left: x-50 }}></div>
-        <div className="chars-menu" style={{ top: y+280, left: x+70 }}>
+        <ClickedArea x={x} y={y} />
+        <div className="chars-menu" style={{ top: y+150, left: x+70 }}>
           <p>Who is it?</p>
           <ul>
             {charsLeft.map(character => (
