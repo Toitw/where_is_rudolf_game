@@ -8,7 +8,7 @@ const HomePage = () => {
       <Link to="/api/scores" role="button">
         Ranking
       </Link>
-      <h1>Welcome to Where's Waldo Game!</h1>
+      <h1>Welcome to Where's Santa's reindeer!</h1>
       {/* <img src="path_to_background_image.jpg" alt="Background" className="background-image" /> */}
       <Link to="/gameboard" role="button">
         Let's play!
