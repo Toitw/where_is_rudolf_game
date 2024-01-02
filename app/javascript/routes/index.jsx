@@ -9,7 +9,7 @@ export default (
         <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/gameboard" element={<GameBoard />} />
-        <Route path="/ranking" element={<Ranking />} />
+        <Route path="/api/scores" element={<Ranking />} />
         </Routes>
     </Router>
 );

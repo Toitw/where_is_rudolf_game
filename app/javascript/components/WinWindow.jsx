@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const WinWindow = ({ time, playAgain }) => {
     const [name, setName] = useState('');
     const [scoreSaved, setScoreSaved] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const csrfToken = document.querySelector('[name="csrf-token"]').content;
+
+    const navigate = useNavigate();
+
+    const goToRanking = () => {
+        navigate('/api/scores');
+    };
 
     const handleClose = () => {
         setIsVisible(false);
@@ -54,7 +61,7 @@ const WinWindow = ({ time, playAgain }) => {
                     {/* Replace this with your new component */}
                     <div>New Component</div>
                     <button id="btn-green" onClick={playAgain}>Play Again</button>
-                    <button id="btn-blue" onClick={() => { /* Rankings logic */ }}>Rankings</button>
+                    <button id="btn-blue" onClick={goToRanking}>Rankings</button>
                 </>
             )}
         </div>

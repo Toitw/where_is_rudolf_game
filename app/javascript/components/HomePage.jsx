@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
   return (
     <div className="home-page">
-      <Link to="/ranking" role="button">
+      <Link to="/api/scores" role="button">
         Ranking
       </Link>
       <h1>Welcome to Where's Waldo Game!</h1>
