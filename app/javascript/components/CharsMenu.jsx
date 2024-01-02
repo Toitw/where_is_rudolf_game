@@ -32,7 +32,7 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage,
         setIsSuccess(true);
 
         if (newCharsLeft.length === 0) {
-          onGameOver(); // Game is over when no characters are left
+          onGameOver(); 
         }
       } else {
         setMessage("Nope, keep looking!");

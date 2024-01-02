@@ -25,6 +25,21 @@ const GameBoard = () => {
         setGameOver(true); 
     };
 
+    const playAgain = () => {
+        setTime(0);
+        setGameOver(false);
+        fetch('/api/characters')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => setCharsLeft(data))
+            .catch(error => console.error('Error:', error));
+            window.location.reload();
+    }
+
     return (
         <div className="game-board">
             <h2>Characters Left:</h2>
@@ -34,7 +49,7 @@ const GameBoard = () => {
             <Timer time={time} setTime={setTime} gameOver={gameOver} />
             <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} setCharsLeft={setCharsLeft}/>
             <Chars charsLeft={charsLeft} setCharsLeft={setCharsLeft} />
-            {gameOver && <WinWindow time={time} />}
+            {gameOver && <WinWindow time={time} playAgain={playAgain} />}
         </div>
     );
 };

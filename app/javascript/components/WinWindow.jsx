@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const WinWindow = ({ time, onClose }) => {
+const WinWindow = ({ time, playAgain }) => {
     const [name, setName] = useState('');
     const [scoreSaved, setScoreSaved] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
@@ -53,7 +53,7 @@ const WinWindow = ({ time, onClose }) => {
                 <>
                     {/* Replace this with your new component */}
                     <div>New Component</div>
-                    <button id="btn-green" onClick={() => { /* Play Again logic */ }}>Play Again</button>
+                    <button id="btn-green" onClick={playAgain}>Play Again</button>
                     <button id="btn-blue" onClick={() => { /* Rankings logic */ }}>Rankings</button>
                 </>
             )}
