@@ -52,7 +52,7 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage,
       {!showMessage ? (
        <>
         <ClickedArea x={x} y={y} />
-        <div className="chars-menu" style={{ top: y+150, left: x+70 }}>
+        <div className="chars-menu" style={{ top: y-50, left: x+70 }}>
           <p>Who is it?</p>
           <ul>
             {charsLeft.map(character => (
