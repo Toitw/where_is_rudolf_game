@@ -1,7 +1,6 @@
 import React from 'react';
 import githubLogo from '../../assets/images/github-mark/github-mark.png';
 import imageIcon from '../../assets/images/github-mark/image-icon.png';
-import rankingIcon from '../../assets/images/github-mark/leaderboard-icon.png';
 
 const Footer = () => {
     return (
