@@ -2,7 +2,7 @@ import React from 'react';
 
 const Chars = () => {
     return (
-        <div style={{ position: 'fixed', width: '100%', textAlign: 'center', backgroundColor: 'white' }}>
+        <div className="chars">
             <img src="/assets/reindeer-trio.png" alt="Reindeer Trio" style={{ width: '250px', height: '100px' }} />
         </div>
     );

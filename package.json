@@ -8,7 +8,7 @@
     "react-router-dom": "^6.21.1"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets --loader:.png=file --loader:.svg=file"
   },
   "devDependencies": {
     "jest": "^29.7.0"

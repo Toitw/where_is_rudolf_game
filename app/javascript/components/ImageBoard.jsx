@@ -24,21 +24,23 @@ const ImageBoard = ({charsLeft, setCharsLeft, onGameOver}) => {
   };
 
   return (
-    <div className="image-board" onClick={handleImageClick}>
-      <img src="/assets/reindeer-bgr.jpg" alt="Game" />
-      {clickPosition.clicked && showSelectionComponents && (
-        <CharsMenu 
-          charsLeft={charsLeft} 
-          setCharsLeft={setCharsLeft}
-          x={clickPosition.x} 
-          y={clickPosition.y} 
-          onCharacterSelect={handleCharacterSelection} 
-          showMessage={showMessage}
-          setShowMessage={setShowMessage}
-          onGameOver={onGameOver}
-        />
-      )}
-    </div>
+    <>
+      <div onClick={handleImageClick}>
+        <img className="image-board" src="/assets/reindeer-bgr.jpg" alt="Game" />
+        {clickPosition.clicked && showSelectionComponents && (
+          <CharsMenu 
+            charsLeft={charsLeft} 
+            setCharsLeft={setCharsLeft}
+            x={clickPosition.x} 
+            y={clickPosition.y} 
+            onCharacterSelect={handleCharacterSelection} 
+            showMessage={showMessage}
+            setShowMessage={setShowMessage}
+            onGameOver={onGameOver}
+          />
+        )}
+      </div>
+    </>
   );
 };
 
