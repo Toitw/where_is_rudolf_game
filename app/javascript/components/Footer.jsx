@@ -6,7 +6,7 @@ import rankingIcon from '../../assets/images/github-mark/leaderboard-icon.png';
 const Footer = () => {
     return (
         <div className="footer">
-            <button onClick={() => window.open('https://github.com/your-github-profile')} className="footer-button">
+            <button onClick={() => window.open('https://github.com/Toitw')} className="footer-button">
                 <img src={githubLogo} alt="GitHub logo" className="github-logo" />
                 Juroga
             </button>

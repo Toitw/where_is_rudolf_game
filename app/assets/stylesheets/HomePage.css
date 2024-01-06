@@ -48,4 +48,22 @@
     background: linear-gradient(to right, #ff5e62, #ff9966);
   }
   
+  @media (min-width: 1200px) {
+    .home-page {
+      padding: 0 200px;
+    }
+  
+    .home-page h1 {
+      font-size: 60px;
+    }
+  
+    .home-page h2 {
+      font-size: 30px;
+    }
+  
+    .home-page .play-button {
+      padding: 20px 40px;
+      font-size: 25px;
+    }
+  }
   
