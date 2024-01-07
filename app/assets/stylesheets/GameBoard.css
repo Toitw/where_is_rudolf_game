@@ -42,7 +42,7 @@
 }
 
 .reindeer-div {
-    width: 100%;
+    max-width: 300px;
     display: flex;
     flex-direction: row;
     justify-content: center;

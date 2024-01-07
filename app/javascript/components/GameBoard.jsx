@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImageBoard from "./ImageBoard";
 import Timer from "./Timer";
-import Chars from "./Chars";
 import WinWindow from "./WinWindow";
 
 const GameBoard = () => {
@@ -40,15 +39,21 @@ const GameBoard = () => {
             window.location.reload();
     }
 
+    const getImageSrc = (characterName) => {
+        const characterFound = !charsLeft.some(char => char.name === characterName);
+        const imageBasePath = "/assets/reindeer-";
+        return `${imageBasePath}${characterName}${characterFound ? "" : "-grey"}.png`;
+    };
+
     return (
         <div className="game-board">
             <div className="fixed-elements">
                 <h1>Where is Rudolf?</h1>
                 <p>Find all the reindeers as fast as you can!</p>
                 <div className="reindeer-div">
-                    <img className="snow-reindeer" src="/assets/reindeer-snow-grey.png" alt="snow-reindeer"/>
-                    <img className="proud-reindeer" src="/assets/reindeer-proud-grey.png" alt="snow-reindeer"/>
-                    <img className="calm-reindeer" src="/assets/reindeer-calm-grey.png" alt="snow-reindeer"/>
+                <img className="snow-reindeer" src={getImageSrc('snow')} alt="snow reindeer"/>
+                    <img className="proud-reindeer" src={getImageSrc('proud')} alt="proud reindeer"/>
+                    <img className="calm-reindeer" src={getImageSrc('calm')} alt="calm reindeer"/>
                 </div>
                 <Timer time={time} setTime={setTime} gameOver={gameOver} />
             </div>
