@@ -42,11 +42,20 @@ const GameBoard = () => {
 
     return (
         <div className="game-board">
-            <h2>Characters Left:</h2>
-            <Timer time={time} setTime={setTime} gameOver={gameOver} />
-            <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} setCharsLeft={setCharsLeft}/>
+            <div className="fixed-elements">
+                <h1>Where is Rudolf?</h1>
+                <p>Find all the reindeers as fast as you can!</p>
+                <div className="reindeer-div">
+                    <img className="snow-reindeer" src="/assets/reindeer-snow-grey.png" alt="snow-reindeer"/>
+                    <img className="proud-reindeer" src="/assets/reindeer-proud-grey.png" alt="snow-reindeer"/>
+                    <img className="calm-reindeer" src="/assets/reindeer-calm-grey.png" alt="snow-reindeer"/>
+                </div>
+                <Timer time={time} setTime={setTime} gameOver={gameOver} />
+            </div>
+            <div className="scrollable-image-board">
+                <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} />
+            </div>
             {gameOver && <WinWindow time={time} playAgain={playAgain} />}
-            <Chars charsLeft={charsLeft} setCharsLeft={setCharsLeft} />
         </div>
     );
 };
