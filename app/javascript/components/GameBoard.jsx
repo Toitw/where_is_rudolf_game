@@ -44,9 +44,7 @@ const GameBoard = () => {
         const imageBasePath = "/assets/";
         return `${imageBasePath}${characterName}${characterFound ? "" : "-grey"}.png`;
     };
-
-    console.log(charsLeft);
-
+    
     return (
         <div className="game-board">
             <div className="fixed-elements">
