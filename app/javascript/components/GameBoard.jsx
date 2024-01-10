@@ -40,25 +40,27 @@ const GameBoard = () => {
     }
 
     const getImageSrc = (characterName) => {
-        const characterFound = !charsLeft.some(char => char.name === characterName);
-        const imageBasePath = "/assets/reindeer-";
+        const characterFound = !charsLeft.some(char => char.name.split(' ')[0] === characterName); // Check if character is in charsLeft, format in db is "proud reindeer" and therefore the split
+        const imageBasePath = "/assets/";
         return `${imageBasePath}${characterName}${characterFound ? "" : "-grey"}.png`;
     };
+
+    console.log(charsLeft);
 
     return (
         <div className="game-board">
             <div className="fixed-elements">
-                <h1>Where is Rudolf?</h1>
-                <p>Find all the reindeers as fast as you can!</p>
+                <h1>Where are my reindeers?</h1>
+                <p>Find the three Santa's favorite reindeers as fast as you can!</p>
                 <div className="reindeer-div">
-                <img className="snow-reindeer" src={getImageSrc('snow')} alt="snow reindeer"/>
-                    <img className="proud-reindeer" src={getImageSrc('proud')} alt="proud reindeer"/>
-                    <img className="calm-reindeer" src={getImageSrc('calm')} alt="calm reindeer"/>
+                    <img className="snow-reindeer" src={getImageSrc('Snowflake')} alt="snowflake reindeer"/>
+                    <img className="proud-reindeer" src={getImageSrc('Proud')} alt="proud reindeer"/>
+                    <img className="calm-reindeer" src={getImageSrc('Zen')} alt="zen reindeer"/>
                 </div>
                 <Timer time={time} setTime={setTime} gameOver={gameOver} />
             </div>
             <div className="scrollable-image-board">
-                <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} />
+                <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} setCharsLeft={setCharsLeft}/>
             </div>
             {gameOver && <WinWindow time={time} playAgain={playAgain} />}
         </div>
