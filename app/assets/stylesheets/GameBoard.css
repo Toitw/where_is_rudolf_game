@@ -11,21 +11,30 @@
 }
 
 .fixed-elements {
-    position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 0;
     width: 100%;
     text-align: center;
+    align-items: center;
     background: white; /* Or any color that fits your design */
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 100;
+}
+
+.fixed-elements h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+.fixed-elements p {
+    padding: 0 1rem;
 }
 
 .scrollable-image-board {
     width: 100%; /* Adjust as needed */
-    height: calc(100vh - 200px); /* Adjust based on the height of your fixed elements */
+    height: calc(100vh - 100px); /* Adjust based on the height of your fixed elements */
     overflow: auto;
-    margin-top: 200px; /* Adjust based on the height of your fixed elements */
 }
 
 .scrollable-image-board::-webkit-scrollbar {
@@ -42,11 +51,13 @@
 }
 
 .reindeer-div {
-    max-width: 300px;
+    max-width: 500px;
+    position: sticky;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 2.5rem;
 }
 
 .reindeer-div img {
