@@ -44,23 +44,25 @@ const GameBoard = () => {
         const imageBasePath = "/assets/";
         return `${imageBasePath}${characterName}${characterFound ? "" : "-grey"}.png`;
     };
-    
+
     return (
         <div className="game-board">
-            <div className="fixed-elements">
                 <h1>Where are my reindeers?</h1>
                 <p>Find the three Santa's favorite reindeers as fast as you can!</p>
-                <div className="reindeer-div">
-                    <img className="snow-reindeer" src={getImageSrc('Snowflake')} alt="snowflake reindeer"/>
-                    <img className="proud-reindeer" src={getImageSrc('Proud')} alt="proud reindeer"/>
-                    <img className="calm-reindeer" src={getImageSrc('Zen')} alt="zen reindeer"/>
+                <div className="fixed-elements">
+                    <div className="sticky-div">
+                        <div className="reindeer-div">
+                            <img className="snow-reindeer" src={getImageSrc('Snowflake')} alt="snowflake reindeer"/>
+                            <img className="proud-reindeer" src={getImageSrc('Proud')} alt="proud reindeer"/>
+                            <img className="calm-reindeer" src={getImageSrc('Zen')} alt="zen reindeer"/>
+                        </div>
+                        <Timer time={time} setTime={setTime} gameOver={gameOver} />
+                    </div>
+                    <div className="scrollable-image-board">
+                        <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} setCharsLeft={setCharsLeft}/>
+                    </div>
+                    {gameOver && <WinWindow time={time} playAgain={playAgain} />}
                 </div>
-                <Timer time={time} setTime={setTime} gameOver={gameOver} />
-            </div>
-            <div className="scrollable-image-board">
-                <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} setCharsLeft={setCharsLeft}/>
-            </div>
-            {gameOver && <WinWindow time={time} playAgain={playAgain} />}
         </div>
     );
 };

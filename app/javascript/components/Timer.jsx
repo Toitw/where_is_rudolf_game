@@ -13,7 +13,7 @@ const Timer = ({ time, setTime, gameOver }) => {
         }
     }, [gameOver, setTime]);
 
-    return <div>Timer: {time} seconds</div>;
+    return <div className="timer">Timer: {time} seconds</div>;
 };
 
 export default Timer;
