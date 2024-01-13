@@ -5,6 +5,19 @@
     align-items: center;
 }
 
+.game-board h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.game-board p {
+    font-size: 1em;
+    text-align: center;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+}
+
 .image-board {
     width: 100%;
     height: auto;
@@ -24,11 +37,11 @@
 
 .fixed-elements h1 {
     margin: 0;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .fixed-elements p {
-    padding: 0 1rem;
+    padding: 0rem 1rem;
 }
 
 .scrollable-image-board {
@@ -58,22 +71,37 @@
     justify-content: center;
     align-items: center;
     gap: 2.5rem;
-    background-color: white;
+
 }
 
 .reindeer-div img {
-    width: 25%;
+    width: 20%;
     height: auto;
 }
 
 .timer {
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 11em;
+    height: 2.5em;
+    border-radius: 30px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 3px 6px #00000029;
+    margin: 20px auto;
+    font-size: 16px;
+    font-weight: bold;
+    color: #495057;
 }
 
 .sticky-div {
     width: 100%;
     top: 10px;
     position: sticky;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
