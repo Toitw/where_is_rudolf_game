@@ -7,4 +7,10 @@
     text-align: center;
     cursor: pointer;
 }
-  
+
+/* Styles for screen sizes 600px and below */
+@media (max-width: 600px) {
+    .match-message {
+        padding: 8px;
+    }
+}

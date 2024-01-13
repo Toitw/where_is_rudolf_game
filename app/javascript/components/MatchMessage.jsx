@@ -6,7 +6,7 @@ const MatchMessage = ({ message, isSuccess, onClose, x, y }) => {
   return (
     <div 
       className="match-message" 
-      style={{ backgroundColor, top: y + 280, left: x + 70 }} 
+      style={{ top: `${y}px`, left: `${x}px`, backgroundColor }} 
       onClick={onClose}
     >
       <p>{message}</p>
