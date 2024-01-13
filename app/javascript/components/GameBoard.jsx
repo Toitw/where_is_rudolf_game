@@ -58,9 +58,7 @@ const GameBoard = () => {
                         </div>
                         <Timer time={time} setTime={setTime} gameOver={gameOver} />
                     </div>
-                    <div className="scrollable-image-board">
-                        <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} setCharsLeft={setCharsLeft}/>
-                    </div>
+                    <ImageBoard charsLeft={charsLeft} onGameOver={handleGameOver} setCharsLeft={setCharsLeft}/>
                     {gameOver && <WinWindow time={time} playAgain={playAgain} />}
                 </div>
         </div>

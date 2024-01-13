@@ -24,8 +24,7 @@ const ImageBoard = ({charsLeft, setCharsLeft, onGameOver}) => {
   };
 
   return (
-    <>
-      <div onClick={handleImageClick} style={{position: 'relative'}}>
+      <div className="image-board-container" onClick={handleImageClick} style={{position: 'relative'}}>
         <img className="image-board" src="/assets/reindeer-bgr.jpg" alt="Game" />
         {clickPosition.clicked && showSelectionComponents && (
           <CharsMenu 
@@ -40,7 +39,6 @@ const ImageBoard = ({charsLeft, setCharsLeft, onGameOver}) => {
           />
         )}
       </div>
-    </>
   );
 };
 

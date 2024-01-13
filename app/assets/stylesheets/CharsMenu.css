@@ -15,11 +15,3 @@
     padding: 0;
     cursor: pointer;
 }
-
-.clicked-area {
-    width: 100px;
-    height: 100px;
-    border: 6px dashed purple;
-    background-color: rgba(128, 128, 128, 0.5);
-    position: absolute;
-}

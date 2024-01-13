@@ -23,10 +23,13 @@
     height: auto;
 }
 
+.image-board-container {
+    z-index: -1;
+}
+
 .fixed-elements {
     display: flex;
     flex-direction: column;
-    top: 0;
     width: 100%;
     text-align: center;
     align-items: center;
@@ -42,26 +45,6 @@
 
 .fixed-elements p {
     padding: 0rem 1rem;
-}
-
-.scrollable-image-board {
-    width: 100%; /* Adjust as needed */
-    height: calc(100vh - 100px); /* Adjust based on the height of your fixed elements */
-    overflow: auto;
-    top: 250px;
-}
-
-.scrollable-image-board::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-}
-
-.scrollable-image-board::-webkit-scrollbar-thumb {
-    background: #FF0000;
-}
-
-.scrollable-image-board::-webkit-scrollbar-track {
-    background: #666666;
 }
 
 .reindeer-div {
@@ -96,7 +79,7 @@
 
 .sticky-div {
     width: 100%;
-    top: 10px;
+    top: 0;
     position: sticky;
     background-color: white;
     display: flex;
