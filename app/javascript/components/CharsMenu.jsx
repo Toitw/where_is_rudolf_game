@@ -45,6 +45,21 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage,
       console.log('Fetch failed: ', error);
     });
   };
+
+  const calculateMenuPosition = () => {
+    const menuWidth = 150; 
+    const viewportWidth = window.innerWidth;
+    let leftPosition = x + 50; // Default position to the right of the click
+
+    // Check if the menu goes out of the viewport
+    if (leftPosition + menuWidth > viewportWidth) {
+      leftPosition = x - menuWidth; // Adjust position to the left of the click
+    }
+
+    return leftPosition;
+  };
+
+  const menuLeftPosition = calculateMenuPosition();
   
 
   return (
@@ -52,7 +67,7 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage,
       {!showMessage ? (
        <>
         <ClickedArea x={x} y={y} />
-        <div className="chars-menu" style={{ top: y-50, left: x+70 }}>
+        <div className="chars-menu" style={{ top: y-50, left: menuLeftPosition }}>
           <p>Who is it?</p>
           <ul>
             {charsLeft.map(character => (

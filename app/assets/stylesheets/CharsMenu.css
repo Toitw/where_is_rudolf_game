@@ -15,3 +15,12 @@
     padding: 0;
     cursor: pointer;
 }
+
+/* Styles for screen sizes 600px and below */
+@media (max-width: 600px) {
+    .chars-menu {
+        width: 100px; 
+        height: 100px;
+        font-size: 10px;
+    }
+}
