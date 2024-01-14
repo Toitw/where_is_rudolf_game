@@ -12,5 +12,8 @@
 @media (max-width: 600px) {
     .match-message {
         padding: 8px;
+        font-size: 0.8rem;
+        top: 50% !important;
+        left: 50% !important;
     }
 }
