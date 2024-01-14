@@ -31,7 +31,6 @@ const ImageBoard = ({charsLeft, setCharsLeft, onGameOver}) => {
     setShowMessage(true); 
   };
 
-  console.log(clickPositionPercentage);
 
   return (
       <div className="image-board-container" onClick={handleImageClick} style={{position: 'relative'}}>

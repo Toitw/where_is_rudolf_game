@@ -48,11 +48,16 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, xPercentage, yPercentage, sh
 
   const calculateMenuPosition = () => {
     const menuWidth = 150; 
+
     let leftPosition = x + 50; // Default position to the right of the click
 
     // Check if the menu goes out of the viewport
     if (leftPosition + menuWidth > imageSize.width) {
-      leftPosition = x - menuWidth; // Adjust position to the left of the click
+      if (window.innerWidth > 600) { // 600px is a common breakpoint for mobile devices
+        leftPosition = x - menuWidth - 50; // Adjust position to the left of the click for big screens
+      } else {
+        leftPosition = x - menuWidth - 15; // Adjust position to the left of the click for small screens
+      }
     }
 
     return leftPosition;
