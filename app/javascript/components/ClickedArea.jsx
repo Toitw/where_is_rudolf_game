@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ClickedArea = ({ x, y }) => {
+
     const style = {
       left: `${x-20}px`,
       top: `${y-20}px`,

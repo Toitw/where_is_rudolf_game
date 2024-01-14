@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ClickedArea from './ClickedArea';
 
 
-const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage, onGameOver }) => {
+const CharsMenu = ({ charsLeft, setCharsLeft, x, y, xPercentage, yPercentage, showMessage, setShowMessage, onGameOver, imageSize }) => {
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -17,7 +17,7 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: JSON.stringify({ clicked_frame: { x, y } }),
+      body: JSON.stringify({ clicked_frame: { xPercentage, yPercentage } }),
     })
     .then(response => {
       if (!response.ok) {
@@ -48,11 +48,10 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage,
 
   const calculateMenuPosition = () => {
     const menuWidth = 150; 
-    const viewportWidth = window.innerWidth;
     let leftPosition = x + 50; // Default position to the right of the click
 
     // Check if the menu goes out of the viewport
-    if (leftPosition + menuWidth > viewportWidth) {
+    if (leftPosition + menuWidth > imageSize.width) {
       leftPosition = x - menuWidth; // Adjust position to the left of the click
     }
 
@@ -66,7 +65,7 @@ const CharsMenu = ({ charsLeft, setCharsLeft, x, y, showMessage, setShowMessage,
     <>
       {!showMessage ? (
        <>
-        <ClickedArea x={x} y={y} />
+        <ClickedArea x={x} y={y} imageSize={imageSize}/>
         <div className="chars-menu" style={{ top: y-50, left: menuLeftPosition }}>
           <p>Who is it?</p>
           <ul>
